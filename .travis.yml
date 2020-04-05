@@ -3,8 +3,10 @@ sudo: required
 services:
     - docker
 before_install:
+    - CD simple
     - docker build -t vikramcse/docker-react -f Dockerfile.dev .
 script:
+    - CD simple
     - docker run -e CI=true vikramcse/docker-react npm run test -- --coverage
 deploy:
     edge: true
